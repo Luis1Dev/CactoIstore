@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>darkiPhone | Premium Store</title>
+
+<style>
+
+/* =========================
+RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050507;
+    font-family:Arial, Helvetica, sans-serif;
+    color:white;
+}
+
+/* =========================
+HEADER
+========================= */
+
+.header{
+    position:fixed;
+    top:20px;
+    left:50%;
+    transform:translateX(-50%);
+
+    width:90%;
+    max-width:1300px;
+
+    padding:14px 28px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    border-radius:60px;
+
+    background:rgba(0,0,0,0.35);
+
+    backdrop-filter:blur(14px);
+
+    z-index:1000;
+
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+}
+
+.logo span{
+    color:#8ab4ff;
+}
+
+.whatsapp-btn{
+    text-decoration:none;
+
+    background:#25D366;
+    color:white;
+
+    padding:12px 22px;
+
+    border-radius:40px;
+
+    font-weight:bold;
+
+    transition:0.3s;
+}
+
+.whatsapp-btn:hover{
+    transform:scale(1.05);
+}
+
+/* =========================
+VIDEO HERO
+========================= */
+
+.video-hero{
+    position:relative;
+
+    width:100%;
+    height:700px;
+
+    overflow:hidden;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.video-bg{
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    z-index:-2;
+}
+
+/* ESCURECIMENTO */
+
+.overlay{
+    position:absolute;
+    inset:0;
+
+    background:linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.2),
+        rgba(0,0,0,0.75)
+    );
+
+    backdrop-filter:blur(2px);
+
+    z-index:-1;
+}
+
+/* CONTEÚDO HERO */
+
+.hero-content{
+    text-align:center;
+
+    padding:20px;
+
+    z-index:2;
+}
+
+.hero-content h1{
+    font-size:80px;
+    font-weight:800;
+
+    line-height:1;
+
+    margin-bottom:25px;
+}
+
+.hero-content p{
+    font-size:22px;
+
+    color:#d7d7d7;
+
+    margin-bottom:40px;
+}
+
+.hero-btn{
+    display:inline-block;
+
+    padding:16px 38px;
+
+    border-radius:50px;
+
+    background:white;
+    color:black;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    transition:0.3s;
+}
+
+.hero-btn:hover{
+    transform:scale(1.05);
+}
+
+/* =========================
+FILTROS
+========================= */
+
+.filter-wrapper{
+    display:flex;
+    justify-content:center;
+
+    margin-top:40px;
+}
+
+.filter-buttons{
+    display:flex;
+    gap:12px;
+
+    background:#101014;
+
+    padding:10px;
+
+    border-radius:60px;
+}
+
+.filter-btn{
+    border:none;
+
+    background:transparent;
+
+    color:white;
+
+    padding:12px 22px;
+
+    border-radius:40px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.filter-btn.active{
+    background:white;
+    color:black;
+}
+
+/* =========================
+GRID PRODUTOS
+========================= */
+
+.products-grid{
+    max-width:1400px;
+
+    margin:50px auto;
+
+    padding:20px;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+
+    gap:30px;
+}
+
+/* CARD */
+
+.product-card{
+    background:#101014;
+
+    border-radius:35px;
+
+    overflow:hidden;
+
+    transition:0.4s;
+
+    border:1px solid rgba(255,255,255,0.06);
+}
+
+.product-card:hover{
+    transform:translateY(-10px);
+
+    border-color:rgba(255,255,255,0.15);
+
+    box-shadow:0 20px 50px rgba(0,0,0,0.5);
+}
+
+.product-img{
+    width:100%;
+    height:400px;
+
+    object-fit:cover;
+
+    background:#0a0a0f;
+}
+
+.product-info{
+    padding:24px;
+}
+
+.product-title{
+    font-size:24px;
+    font-weight:700;
+
+    margin-bottom:10px;
+}
+
+.condition{
+    display:inline-block;
+
+    padding:8px 14px;
+
+    border-radius:40px;
+
+    background:rgba(255,255,255,0.05);
+
+    color:#8ab4ff;
+
+    font-size:13px;
+
+    margin-bottom:20px;
+}
+
+.price{
+    font-size:36px;
+    font-weight:800;
+
+    margin-bottom:8px;
+}
+
+.installment{
+    color:#999;
+
+    margin-bottom:25px;
+}
+
+.buy-btn{
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:white;
+    color:black;
+
+    font-weight:bold;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.buy-btn:hover{
+    transform:scale(0.98);
+}
+
+/* =========================
+FOOTER
+========================= */
+
+.footer{
+    text-align:center;
+
+    padding:70px 20px;
+
+    border-top:1px solid rgba(255,255,255,0.05);
+
+    color:#888;
+}
+
+/* =========================
+RESPONSIVO
+========================= */
+
+@media(max-width:768px){
+
+    .hero-content h1{
+        font-size:48px;
+    }
+
+    .hero-content p{
+        font-size:18px;
+    }
+
+    .header{
+        width:95%;
+        padding:12px 18px;
+    }
+
+    .logo{
+        font-size:22px;
+    }
+
+    .whatsapp-btn{
+        font-size:13px;
+        padding:10px 16px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<div class="header">
+
+    <div class="logo">
+        dark<span>iPhone</span>
+    </div>
+
+    <a href="https://wa.me/5511999999999" class="whatsapp-btn">
+        💬 Atendimento
+    </a>
+
+</div>
+
+<!-- HERO VIDEO -->
+
+<section class="video-hero">
+
+    <!-- VIDEO -->
+
+    <video autoplay muted loop playsinline class="video-bg">
+
+        <source src="11022138-sd_640_320_25fps.mp4" type="video/mp4">
+
+    </video>
+
+    <!-- ESCURECIMENTO -->
+
+    <div class="overlay"></div>
+
+    <!-- TEXTO -->
+
+    <div class="hero-content">
+
+        <h1>
+            iPhones com<br>
+            identidade dark.
+        </h1>
+
+        <p>
+            Novos, seminovos e premium.
+        </p>
+
+        <a href="#productsGrid" class="hero-btn">
+            Ver Catálogo
+        </a>
+
+    </div>
+
+</section>
+
+<!-- FILTROS -->
+
+<div class="filter-wrapper">
+
+    <div class="filter-buttons">
+
+        <button class="filter-btn active" data-filter="all">
+            Todos
+        </button>
+
+        <button class="filter-btn" data-filter="novo">
+            Novo
+        </button>
+
+        <button class="filter-btn" data-filter="seminovo">
+            Seminovo
+        </button>
+
+    </div>
+
+</div>
+
+<!-- PRODUTOS -->
+
+<div class="products-grid" id="productsGrid"></div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+    <p>
+        🔐 Pagamento seguro • Parcelamento em até 12x
+    </p>
+
+    <p style="margin-top:12px;">
+        📦 Enviamos para todo Brasil
+    </p>
+
+</div>
+
+<script>
+
+/* =========================
+CATÁLOGO
+========================= */
+
+const products = [
+
+{
+    id:1,
+    name:"iPhone 17 Pro Max",
+    condition:"novo",
+    conditionLabel:"🔷 NOVO LACRADO",
+    price:12499,
+    installment:"12x de R$ 1.041",
+    image:"iphone-17-pro-model-unselect-gallery-2-202509.webp"
+},
+
+{
+    id:2,
+    name:"iPhone 15 Pro",
+    condition:"novo",
+    conditionLabel:"🔷 NOVO LACRADO",
+    price:7299,
+    installment:"12x de R$ 608",
+    image:"baixados.avif"
+},
+
+{
+    id:3,
+    name:"iPhone 14 Pro",
+    condition:"seminovo",
+    conditionLabel:"🟠 BATERIA 91%",
+    price:5399,
+    installment:"10x de R$ 539",
+    image:"images (1).jpg"
+}
+
+];
+
+/* =========================
+FORMATAR PREÇO
+========================= */
+
+function formatPrice(price){
+
+    return price.toLocaleString('pt-BR', {
+
+        style:'currency',
+        currency:'BRL'
+
+    });
+
+}
+
+/* =========================
+RENDERIZAR
+========================= */
+
+function renderProducts(filter="all"){
+
+    const container = document.getElementById("productsGrid");
+
+    const filtered = filter === "all"
+        ? products
+        : products.filter(p => p.condition === filter);
+
+    container.innerHTML = filtered.map(product => `
+
+        <div class="product-card">
+
+            <img src="${product.image}" class="product-img">
+
+            <div class="product-info">
+
+                <div class="product-title">
+                    ${product.name}
+                </div>
+
+                <div class="condition">
+                    ${product.conditionLabel}
+                </div>
+
+                <div class="price">
+                    ${formatPrice(product.price)}
+                </div>
+
+                <div class="installment">
+                    ou ${product.installment}
+                </div>
+
+                <button 
+                    class="buy-btn"
+                    onclick="buyProduct('${product.name}')"
+                >
+                    Comprar Agora
+                </button>
+
+            </div>
+
+        </div>
+
+    `).join("");
+
+}
+
+/* =========================
+WHATSAPP
+========================= */
+
+function buyProduct(name){
+
+    const msg = `Olá! Quero comprar o ${name}`;
+
+    const url = `https://wa.me/5511999999999?text=${encodeURIComponent(msg)}`;
+
+    window.open(url, "_blank");
+
+}
+
+/* =========================
+FILTROS
+========================= */
+
+const filterBtns = document.querySelectorAll(".filter-btn");
+
+filterBtns.forEach(btn => {
+
+    btn.addEventListener("click", () => {
+
+        filterBtns.forEach(b => b.classList.remove("active"));
+
+        btn.classList.add("active");
+
+        renderProducts(btn.dataset.filter);
+
+    });
+
+});
+
+/* =========================
+INICIAR
+========================= */
+
+renderProducts();
+
+</script>
+
+</body>
+</html>
