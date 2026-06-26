@@ -147,9 +147,13 @@ VIDEO HERO
     font-size:80px;
     font-weight:800;
 
-    line-height:1;
+    line-height:1.1;
 
     margin-bottom:25px;
+}
+
+.hero-content h1 span{
+    color: #8ab4ff;
 }
 
 .hero-content p{
@@ -342,18 +346,86 @@ GRID PRODUTOS
 FOOTER
 ========================= */
 
-.footer{
-    text-align:center;
+.footer-legal a {
+  color: #86868b;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
 
-    padding:70px 20px;
+.footer-legal a:hover {
+  color: #f5f5f7;
+  text-decoration: underline;
+}
 
-    border-top:1px solid rgba(255,255,255,0.05);
+.main-footer {
+  background-color: #000000;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  border-top: 1px solid #1c1c1e;
+  margin-top: 50px;
+}
 
-    color:#888;
+.trust-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 20px;
+  border-bottom: 1px solid #1c1c1e;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #f5f5f7;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.trust-item svg {
+  color: #86868b;
+}
+
+.trust-separator {
+  color: #3a3a3c;
+  font-size: 14px;
+}
+
+.footer-legal {
+  padding: 32px 20px;
+  text-align: center;
+  color: #86868b;
+  font-size: 12px;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-info {
+  margin: 12px 0;
+}
+
+/* Responsividade (Celular) */
+@media (max-width: 600px) {
+  .trust-bar {
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .trust-separator {
+    display: none;
+  }
+  
+  .footer-legal {
+    padding: 24px 16px;
+  }
 }
 
 /* =========================
-RESPONSIVO
+RESPONSIVO GERAL
 ========================= */
 
 @media(max-width:768px){
@@ -379,7 +451,6 @@ RESPONSIVO
         font-size:13px;
         padding:10px 16px;
     }
-
 }
 
 </style>
@@ -387,135 +458,143 @@ RESPONSIVO
 
 <body>
 
-<!-- HEADER -->
-
 <div class="header">
-
     <div class="logo">
         Luis<span>Store</span>
     </div>
-
-    <a href="https://wa.me/5511999999999" class="whatsapp-btn">
+    <a href="https://www.instagram.com/luisiphoneofc"  class="whatsapp-btn">
         💬 Atendimento
     </a>
-
 </div>
 
-<!-- HERO VIDEO -->
-
 <section class="video-hero">
-
-    <!-- VIDEO -->
-
     <video autoplay muted loop playsinline class="video-bg">
-
         <source src="11022138-sd_640_320_25fps.mp4" type="video/mp4">
-
     </video>
-
-    <!-- ESCURECIMENTO -->
 
     <div class="overlay"></div>
 
-    <!-- TEXTO -->
-
     <div class="hero-content">
-
         <h1>
             iPhones<br>
-            <h1>Luis Store</h1>
+            <span>Luis Store</span>
         </h1>
-
-        <p>
-            Novos, seminovos e premium.
-        </p>
-
-        <a href="#productsGrid" class="hero-btn">
-            Ver Catálogo
-        </a>
-
+        <p>Novos, seminovos e premium.</p>
+        <a href="#productsGrid" class="hero-btn">Ver Catálogo</a>
     </div>
-
 </section>
 
-<!-- FILTROS -->
-
 <div class="filter-wrapper">
-
     <div class="filter-buttons">
-
-        <button class="filter-btn active" data-filter="all">
-            Todos
-        </button>
-
-        <button class="filter-btn" data-filter="novo">
-            Novo
-        </button>
-
-        <button class="filter-btn" data-filter="seminovo">
-            Seminovo
-        </button>
-
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="novo">Novo</button>
+        <button class="filter-btn" data-filter="seminovo">Seminovo</button>
     </div>
-
 </div>
-
-<!-- PRODUTOS -->
 
 <div class="products-grid" id="productsGrid"></div>
 
-<!-- FOOTER -->
-
-<div class="footer">
-
-    <p>
-        🔐 Pagamento seguro • Parcelamento em até 12x
-    </p>
-
-    <p style="margin-top:12px;">
-        📦 Enviamos para todo Brasil
-    </p>
-
+<div id="vendorModal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.75); justify-content: center; align-items: center; font-family: Arial, sans-serif;">
+    <div style="background: #101014; padding: 30px; border-radius: 24px; text-align: center; max-width: 320px; width: 90%; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0px 20px 40px rgba(0,0,0,0.5);">
+        <h3 style="margin-top: 0; color: white; font-size: 20px; font-weight: 700; margin-bottom: 8px;">Com quem deseja falar?</h3>
+        <p style="font-size: 14px; color: #86868b; margin-bottom: 24px;">Escolha um de nossos vendedores:</p>
+        
+        <button id="btnLuisCarlos" style="width: 100%; padding: 14px; margin-bottom: 12px; border: none; background: #25D366; color: white; font-weight: bold; font-size: 16px; border-radius: 40px; cursor: pointer; transition: 0.2s;">
+            Luis Carlos
+        </button>
+        <button id="btnLuisEduardo" style="width: 100%; padding: 14px; border: none; background: #25D366; color: white; font-weight: bold; font-size: 16px; border-radius: 40px; cursor: pointer; transition: 0.2s;">
+            Luis Eduardo
+        </button>
+        
+        <button id="btnFecharModal" style="margin-top: 20px; background: transparent; border: none; color: #86868b; cursor: pointer; text-decoration: none; font-size: 14px;">
+            Cancelar
+        </button>
+    </div>
 </div>
+
+<footer class="main-footer">
+  <div class="trust-bar">
+    <div class="trust-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+      </svg>
+      <span>Pagamento seguro</span>
+    </div>
+
+    <span class="trust-separator">•</span>
+
+    <div class="trust-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+        <line x1="1" y1="10" x2="23" y2="10"></line>
+      </svg>
+      <span>Parcelamento em até 12x</span>
+    </div>
+
+    <span class="trust-separator">—</span>
+
+    <div class="trust-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="1" y="3" width="15" height="13"></rect>
+        <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+        <circle cx="5.5" cy="18.5" r="2.5"></circle>
+        <circle cx="18.5" cy="18.5" r="2.5"></circle>
+      </svg>
+      <span>Enviamos para todo Brasil</span>
+    </div>
+  </div>
+
+  <div class="footer-legal">
+    <p>© 2026 Luis Store. Todos os direitos reservados.</p>
+    <p class="footer-info">Preços e condições de pagamento válidos exclusivamente para compras efetuadas no site...</p>
+    <p class="footer-credits">
+      <a href="https://www.instagram.com/luisiphoneofc" target="_blank">Luis iPhone</a>
+      
+  </div>
+</footer>
 
 <script>
 
 /* =========================
-CATÁLOGO
+CATÁLOGO DE PRODUTOS
 ========================= */
 
 const products = [
+  // SEMINOVOS
+  { id: 1, name: "iPhone XR 64gb 🟠⚪️", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 999.99, installment: "12x de R$ 83,33", image: "images (1) (1).jpg" },
+  { id: 2, name: "iPhone 11 64gb ⚫️", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 1200.00, installment: "12x de R$ 100,00", image: "IPHONE 11.jpg.jpeg" },
+  { id: 3, name: "iPhone 11 128gb ⚪️", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 1599.99, installment: "12x de R$ 133,33", image: "IPHONE 11.jpg.jpeg" },
+  { id: 4, name: "iPhone 11 Pro 64gb 🟡", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 1699.99, installment: "12x de R$ 141,66", image: "IPHONE 11 PRO.jpg.jpeg" },
+  { id: 5, name: "iPhone 11 Pro Max 64gb 🟠🟢", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 1950.00, installment: "12x de R$ 162,50", image: "IPHONE 11 PRO MAX.jpg.jpeg" },
+  { id: 6, name: "iPhone 12 64gb 🔵⚪️", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 1750.00, installment: "12x de R$ 145,83", image: "IPHONE .12.png" },
+  { id: 7, name: "iPhone 12 128gb ⚫️⚪️", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 1999.99, installment: "12x de R$ 166,66", image: "IPHONE 12.png" },
+  { id: 8, name: "iPhone 12 Pro 128gb 🔵🟠⚪️", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 2350.00, installment: "12x de R$ 195,83", image: "IPHONE 12 PRO.jpg.jpeg" },
+  { id: 9, name: "iPhone 12 Pro Max 128gb ⚫️🟠", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 2699.99, installment: "12x de R$ 225,00", image: "IPHONE 12 PRO.jpg.jpeg" },
+  { id: 10, name: "iPhone 12 Pro Max 256gb ⚪️", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 2899.99, installment: "12x de R$ 241,66", image: "IPHONE PRO 12.jpg.jpeg" },
+  { id: 11, name: "iPhone 13 128gb ⚪️🟣", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 2350.00, installment: "12x de R$ 195,83", image: "IPHONE 13.jpg.jpeg" },
+  { id: 12, name: "iPhone 13 Pro 128gb ⚫️🔵", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 2750.00, installment: "12x de R$ 229,16", image: "IPHONE 13 PRO MAX.jpg.jpeg" },
+  { id: 13, name: "iPhone 13 Pro Max 128gb ⚫️🟠🔵", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 3150.00, installment: "12x de R$ 262,50", image: "IPHONE 13 PRO MAX.jpg.jpeg" },
+  { id: 14, name: "iPhone 13 Pro Max 256gb 🟠", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 3450.00, installment: "12x de R$ 287,50", image: "IPHONE 13 PRO.jpg.jpeg" },
+  { id: 15, name: "iPhone 14 Pro 256gb 🟣", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 3499.99, installment: "12x de R$ 291,66", image: "IPHONE 14 PRO.jpg.jpeg" },
+  { id: 16, name: "iPhone 14 Pro Max 128gb 🟠⚪️", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 3699.99, installment: "12x de R$ 308,33", image: "IPHONE 14 PRO MAX.jpg.jpeg" },
+  { id: 17, name: "iPhone 14 Pro Max 256gb 🟣", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 3950.00, installment: "12x de R$ 329,16", image: "IPHONE 14 PRO MAX.jpg.jpeg" },
+  { id: 18, name: "iPhone 15 Pro 128gb ⚪️", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 4050.00, installment: "12x de R$ 337,50", image: "IPHONE 15 PRO.jpg.jpeg" },
+  { id: 19, name: "iPhone 15 Pro 256gb ⚪️", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 4299.99, installment: "12x de R$ 358,33", image: "IPHONE 15 PRO.jpg.jpeg" },
+  { id: 20, name: "iPhone 15 Pro Max 256gb ⚪️", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 4650.00, installment: "12x de R$ 387,50", image: "iphone 15 PRO MAX.jpg.jpeg" },
+  { id: 21, name: "iPhone 16 128gb 🟣⚪️", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 4050.00, installment: "12x de R$ 337,50", image: "IPHONE 16.jpg (1).jpeg" },
+  { id: 22, name: "iPhone 16 256gb 🟣⚪️", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 4350.00, installment: "12x de R$ 362,50", image: "IPHONE 16.jpg (1).jpeg" },
+  { id: 23, name: "iPhone 16 Pro 256gb ⚪️🟠", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 5050.00, installment: "12x de R$ 420,83", image: "IPHONE 16 PRO.jpg.jpeg" },
+  { id: 24, name: "iPhone 16 Pro Max 256gb 🟠⚪️", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 5750.00, installment: "12x de R$ 479,16", image: "IPHONE 16 PRO MAX.jpg.jpeg" },
 
-{
-    id:1,
-    name:"iPhone 17 Pro Max",
-    condition:"novo",
-    conditionLabel:"🔷 NOVO LACRADO",
-    price:12499,
-    installment:"12x de R$ 1.041",
-    image:"iphone-17-pro-model-unselect-gallery-2-202509.webp"
-},
-
-{
-    id:2,
-    name:"iPhone 15 Pro",
-    condition:"novo",
-    conditionLabel:"🔷 NOVO LACRADO",
-    price:7299,
-    installment:"12x de R$ 608",
-    image:"baixados.avif"
-},
-
-{
-    id:3,
-    name:"iPhone 14 Pro",
-    condition:"seminovo",
-    conditionLabel:"🟠 BATERIA 91%",
-    price:5399,
-    installment:"10x de R$ 539",
-    image:"images (1).jpg"
-}
-
+  // LACRADOS (NOVOS)
+  { id: 25, name: "iPhone 13 512gb ⚫️", condition: "novo", conditionLabel: "🔷 LACRADO CPO", price: 3550.00, installment: "12x de R$ 295,83", image: "IPHONE 13.jpg.jpeg" },
+  { id: 26, name: "iPhone 14 128gb 🔵", condition: "novo", conditionLabel: "🔷 NOVO LACRADO", price: 3750.00, installment: "12x de R$ 312,50", image: "IPHONE 14.jpg.jpeg" },
+  { id: 27, name: "iPhone 14 Pro Max 128gb ⚪️", condition: "novo", conditionLabel: "🔷 NOVO LACRADO", price: 4750.00, installment: "12x de R$ 395,83", image: "IPHONE 14 PRO MAX.jpg.jpeg" },
+  { id: 28, name: "iPhone 15 128gb 🔵", condition: "novo", conditionLabel: "🔷 NOVO LACRADO", price: 4150.00, installment: "12x de R$ 345,83", image: "IPHONE 15.jpg.jpeg" },
+  { id: 29, name: "iPhone 16 128gb ⚪️🟣", condition: "novo", conditionLabel: "🔷 NOVO LACRADO", price: 4750.00, installment: "12x de R$ 395,83", image: "IPHONE 16.jpg (1).jpeg" },
+  { id: 30, name: "iPhone 17 Pro 256gb ⚪️", condition: "novo", conditionLabel: "🔷 NOVO LACRADO", price: 7950.00, installment: "12x de R$ 662,50", image: "IPHONE 17 PRO.jpg.jpeg" },
+  { id: 31, name: "iPhone 17 Pro Max 256gb ⚪️", condition: "novo", conditionLabel: "🔷 NOVO LACRADO", price: 8900.00, installment: "12x de R$ 741,66", image: "IPHONE 17 PRO MAX.jpg.jpeg" }
 ];
 
 /* =========================
@@ -523,108 +602,89 @@ FORMATAR PREÇO
 ========================= */
 
 function formatPrice(price){
-
     return price.toLocaleString('pt-BR', {
-
         style:'currency',
         currency:'BRL'
-
     });
-
 }
 
 /* =========================
-RENDERIZAR
+RENDERIZAR PRODUTOS
 ========================= */
 
 function renderProducts(filter="all"){
-
     const container = document.getElementById("productsGrid");
-
     const filtered = filter === "all"
         ? products
         : products.filter(p => p.condition === filter);
 
     container.innerHTML = filtered.map(product => `
-
         <div class="product-card">
-
             <img src="${product.image}" class="product-img">
-
             <div class="product-info">
-
-                <div class="product-title">
-                    ${product.name}
-                </div>
-
-                <div class="condition">
-                    ${product.conditionLabel}
-                </div>
-
-                <div class="price">
-                    ${formatPrice(product.price)}
-                </div>
-
-                <div class="installment">
-                    ou ${product.installment}
-                </div>
-
-                <button 
-                    class="buy-btn"
-                    onclick="buyProduct('${product.name}')"
-                >
+                <div class="product-title">${product.name}</div>
+                <div class="condition">${product.conditionLabel}</div>
+                <div class="price">${formatPrice(product.price)}</div>
+                <div class="installment">ou ${product.installment}</div>
+                <button class="buy-btn" onclick="buyProduct('${product.name}')">
                     Comprar Agora
                 </button>
-
             </div>
-
         </div>
-
     `).join("");
-
 }
 
 /* =========================
-WHATSAPP
+LÓGICA DO MODAL WHATSAPP
 ========================= */
 
-function buyProduct(name){
+function buyProduct(name) {
+    const modal = document.getElementById("vendorModal");
+    const btnCarlos = document.getElementById("btnLuisCarlos");
+    const btnEduardo = document.getElementById("btnLuisEduardo");
+    const btnFechar = document.getElementById("btnFecharModal");
 
-    const msg = `Olá! Quero comprar o ${name}`;
+    modal.style.display = "flex";
 
-    const url = `https://wa.me/5511999999999?text=${encodeURIComponent(msg)}`;
+    function abrirWhats(phone) {
+        const msg = `Olá! Quero comprar o ${name}`;
+        const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+        window.open(url, "_blank");
+        modal.style.display = "none";
+    }
 
-    window.open(url, "_blank");
+    btnCarlos.onclick = function() {
+        abrirWhats("558897429853"); // Número do Luis Carlos
+    };
 
+    btnEduardo.onclick = function() {
+        abrirWhats("558892211029"); // Número do Luis Eduardo
+    };
+
+    btnFechar.onclick = function() {
+        modal.style.display = "none";
+    };
 }
 
 /* =========================
-FILTROS
+FILTROS INTERAÇÃO
 ========================= */
 
 const filterBtns = document.querySelectorAll(".filter-btn");
 
 filterBtns.forEach(btn => {
-
     btn.addEventListener("click", () => {
-
         filterBtns.forEach(b => b.classList.remove("active"));
-
         btn.classList.add("active");
-
         renderProducts(btn.dataset.filter);
-
     });
-
 });
 
 /* =========================
-INICIAR
+INICIAR SITE
 ========================= */
-
 renderProducts();
 
 </script>
-
 </body>
 </html>
