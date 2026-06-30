@@ -566,39 +566,70 @@ CATÁLOGO DE PRODUTOS
 
 const products = [
   // SEMINOVOS
-  { id: 1, name: "iPhone XR 64gb 🟠⚪️", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 999.99, installment: "12x de R$ 83,33", image: "images (1) (1).jpg" },
-  { id: 2, name: "iPhone 11 64gb ⚫️", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 1200.00, installment: "12x de R$ 100,00", image: "IPHONE 11.jpg.jpeg" },
-  { id: 3, name: "iPhone 11 128gb ⚪️", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 1599.99, installment: "12x de R$ 133,33", image: "IPHONE 11.jpg.jpeg" },
-  { id: 4, name: "iPhone 11 Pro 64gb 🟡", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 1699.99, installment: "12x de R$ 141,66", image: "IPHONE 11 PRO.jpg.jpeg" },
-  { id: 5, name: "iPhone 11 Pro Max 64gb 🟠🟢", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 1950.00, installment: "12x de R$ 162,50", image: "IPHONE 11 PRO MAX.jpg.jpeg" },
-  { id: 6, name: "iPhone 12 64gb 🔵⚪️", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 1750.00, installment: "12x de R$ 145,83", image: "IPHONE .12.png" },
-  { id: 7, name: "iPhone 12 128gb ⚫️⚪️", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 1999.99, installment: "12x de R$ 166,66", image: "IPHONE 12.png" },
-  { id: 8, name: "iPhone 12 Pro 128gb 🔵🟠⚪️", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 2350.00, installment: "12x de R$ 195,83", image: "IPHONE 12 PRO.jpg.jpeg" },
-  { id: 9, name: "iPhone 12 Pro Max 128gb ⚫️🟠", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 2699.99, installment: "12x de R$ 225,00", image: "IPHONE 12 PRO.jpg.jpeg" },
-  { id: 10, name: "iPhone 12 Pro Max 256gb ⚪️", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 2899.99, installment: "12x de R$ 241,66", image: "IPHONE PRO 12.jpg.jpeg" },
-  { id: 11, name: "iPhone 13 128gb ⚪️🟣", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 2350.00, installment: "12x de R$ 195,83", image: "IPHONE 13.jpg.jpeg" },
-  { id: 12, name: "iPhone 13 Pro 128gb ⚫️🔵", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 2750.00, installment: "12x de R$ 229,16", image: "IPHONE 13 PRO MAX.jpg.jpeg" },
-  { id: 13, name: "iPhone 13 Pro Max 128gb ⚫️🟠🔵", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 3150.00, installment: "12x de R$ 262,50", image: "IPHONE 13 PRO MAX.jpg.jpeg" },
-  { id: 14, name: "iPhone 13 Pro Max 256gb 🟠", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 3450.00, installment: "12x de R$ 287,50", image: "IPHONE 13 PRO.jpg.jpeg" },
-  { id: 15, name: "iPhone 14 Pro 256gb 🟣", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 3499.99, installment: "12x de R$ 291,66", image: "IPHONE 14 PRO.jpg.jpeg" },
-  { id: 16, name: "iPhone 14 Pro Max 128gb 🟠⚪️", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 3699.99, installment: "12x de R$ 308,33", image: "IPHONE 14 PRO MAX.jpg.jpeg" },
-  { id: 17, name: "iPhone 14 Pro Max 256gb 🟣", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 3950.00, installment: "12x de R$ 329,16", image: "IPHONE 14 PRO MAX.jpg.jpeg" },
-  { id: 18, name: "iPhone 15 Pro 128gb ⚪️", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 4050.00, installment: "12x de R$ 337,50", image: "IPHONE 15 PRO.jpg.jpeg" },
-  { id: 19, name: "iPhone 15 Pro 256gb ⚪️", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 4299.99, installment: "12x de R$ 358,33", image: "IPHONE 15 PRO.jpg.jpeg" },
-  { id: 20, name: "iPhone 15 Pro Max 256gb ⚪️", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 4650.00, installment: "12x de R$ 387,50", image: "iphone 15 PRO MAX.jpg.jpeg" },
-  { id: 21, name: "iPhone 16 128gb 🟣⚪️", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 4050.00, installment: "12x de R$ 337,50", image: "IPHONE 16.jpg (1).jpeg" },
-  { id: 22, name: "iPhone 16 256gb 🟣⚪️", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 4350.00, installment: "12x de R$ 362,50", image: "IPHONE 16.jpg (1).jpeg" },
-  { id: 23, name: "iPhone 16 Pro 256gb ⚪️🟠", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 5050.00, installment: "12x de R$ 420,83", image: "IPHONE 16 PRO.jpg.jpeg" },
-  { id: 24, name: "iPhone 16 Pro Max 256gb 🟠⚪️", condition: "seminovo", conditionLabel: "🟠 SEMINOVO", price: 5750.00, installment: "12x de R$ 479,16", image: "IPHONE 16 PRO MAX.jpg.jpeg" },
+  { id: 1, name: "iPhone XR 64gb 🟠⚪️", condition: "seminovo", conditionLabel:  
+  "🟠 SEMINOVO", price: 999.99, installment: "De 2 a 12 vezes", image: "images (1) (1).jpg" },
+  { id: 2, name: "iPhone 11 64gb ⚫️", condition: "seminovo", conditionLabel: 
+  "🟠 SEMINOVO", price: 1200.00, installment: "De 2 a 12 vezes", image: "IPHONE 11.jpg.jpeg" },
+  { id: 3, name: "iPhone 11 128gb ⚪️", condition: "seminovo", conditionLabel: 
+  "🟠 SEMINOVO", price: 1599.99, installment: "De 2 a 12 vezes", image: "IPHONE 11.jpg.jpeg" },
+  { id: 4, name: "iPhone 11 Pro 64gb 🟡", condition: "seminovo", conditionLabel:
+   "🟠 SEMINOVO", price: 1699.99, installment: "De 2 a 12 vezes", image: "IPHONE 11 PRO.jpg.jpeg" },
+  { id: 5, name: "iPhone 11 Pro Max 64gb 🟠🟢", condition: "seminovo", conditionLabel: 
+  "🟠 SEMINOVO", price: 1950.00, installment: "De 2 a 12 vezes", image: "IPHONE 11 PRO MAX.jpg.jpeg" },
+  { id: 6, name: "iPhone 12 64gb 🔵⚪️", condition: "seminovo", conditionLabel: 
+  "🟠 SEMINOVO", price: 1750.00, installment: "De 2 a 12 vezes", image: "IPHONE .12.png" },
+  { id: 7, name: "iPhone 12 128gb ⚫️⚪️", condition: "seminovo", conditionLabel: 
+  "🟠 SEMINOVO", price: 1999.99, installment: "De 2 a 12 vezes", image: "IPHONE 12.png" },
+  { id: 8, name: "iPhone 12 Pro 128gb 🔵🟠⚪️", condition: "seminovo", conditionLabel:
+   "🟠 SEMINOVO", price: 2350.00, installment: "De 2 a 12 vezes", image: "IPHONE 12 PRO.jpg.jpeg" },
+  { id: 9, name: "iPhone 12 Pro Max 128gb ⚫️🟠", condition: "seminovo", conditionLabel: 
+  "🟠 SEMINOVO", price: 2699.99, installment: "De 2 a 12 vezes", image: "IPHONE 12 PRO.jpg.jpeg" },
+  { id: 10, name: "iPhone 12 Pro Max 256gb ⚪️", condition: "seminovo", conditionLabel:
+   "🟠 SEMINOVO", price: 2899.99, installment: "De 2 a 12 vezes", image: "IPHONE PRO 12.jpg.jpeg" },
+  { id: 11, name: "iPhone 13 128gb ⚪️🟣", condition: "seminovo", conditionLabel: 
+  "🟠 SEMINOVO", price: 2350.00, installment: "De 2 a 12 vezes", image: "IPHONE 13.jpg.jpeg" },
+  { id: 12, name: "iPhone 13 Pro 128gb ⚫️🔵", condition: "seminovo", conditionLabel: 
+  "🟠 SEMINOVO", price: 2750.00, installment: "De 2 a 12 vezes", image: "IPHONE 13 PRO MAX.jpg.jpeg" },
+  { id: 13, name: "iPhone 13 Pro Max 128gb ⚫️🟠🔵", condition: "seminovo", conditionLabel:
+   "🟠 SEMINOVO", price: 3150.00, installment: "De 2 a 12 vezes", image: "IPHONE 13 PRO MAX.jpg.jpeg" },
+  { id: 14, name: "iPhone 13 Pro Max 256gb 🟠", condition: "seminovo", conditionLabel: 
+  "🟠 SEMINOVO", price: 3450.00, installment: "De 2 a 12 vezes", image: "IPHONE 13 PRO.jpg.jpeg" },
+  { id: 15, name: "iPhone 14 Pro 256gb 🟣", condition: "seminovo", conditionLabel: 
+  "🟠 SEMINOVO", price: 3499.99, installment: "De 2 a 12 vezes", image: "IPHONE 14 PRO.jpg.jpeg" },
+  { id: 16, name: "iPhone 14 Pro Max 128gb 🟠⚪️", condition: "seminovo", conditionLabel: 
+  "🟠 SEMINOVO", price: 3699.99, installment: "De 2 a 12 vezes", image: "IPHONE 14 PRO MAX.jpg.jpeg" },
+  { id: 17, name: "iPhone 14 Pro Max 256gb 🟣", condition: "seminovo", conditionLabel: 
+  "🟠 SEMINOVO", price: 3950.00, installment: "De 2 a 12 vezes", image: "IPHONE 14 PRO MAX.jpg.jpeg" },
+  { id: 18, name: "iPhone 15 Pro 128gb ⚪️", condition: "seminovo", conditionLabel: 
+  "🟠 SEMINOVO", price: 4050.00, installment: "De 2 a 12 vezes", image: "IPHONE 15 PRO.jpg.jpeg" },
+  { id: 19, name: "iPhone 15 Pro 256gb ⚪️", condition: "seminovo", conditionLabel: 
+  "🟠 SEMINOVO", price: 4299.99, installment: "De 2 a 12 vezes", image: "IPHONE 15 PRO.jpg.jpeg" },
+  { id: 20, name: "iPhone 15 Pro Max 256gb ⚪️", condition: "seminovo", conditionLabel: 
+  "🟠 SEMINOVO", price: 4650.00, installment: "De 2 a 12 vezes", image: "iphone 15 PRO MAX.jpg.jpeg" },
+  { id: 21, name: "iPhone 16 128gb 🟣⚪️", condition: "seminovo", conditionLabel: 
+  "🟠 SEMINOVO", price: 4050.00, installment: "De 2 a 12 vezes", image: "IPHONE 16.jpg (1).jpeg" },
+  { id: 22, name: "iPhone 16 256gb 🟣⚪️", condition: "seminovo", conditionLabel: 
+  "🟠 SEMINOVO", price: 4350.00, installment: "De 2 a 12 vezes", image: "IPHONE 16.jpg (1).jpeg" },
+  { id: 23, name: "iPhone 16 Pro 256gb ⚪️🟠", condition: "seminovo", conditionLabel: 
+  "🟠 SEMINOVO", price: 5050.00, installment: "De 2 a 12 vezes", image: "IPHONE 16 PRO.jpg.jpeg" },
+  { id: 24, name: "iPhone 16 Pro Max 256gb 🟠⚪️", condition: "seminovo", conditionLabel: 
+  "🟠 SEMINOVO", price: 5750.00, installment: "De 2 a 12 vezes", image: "IPHONE 16 PRO MAX.jpg.jpeg" },
 
   // LACRADOS (NOVOS)
-  { id: 25, name: "iPhone 13 512gb ⚫️", condition: "novo", conditionLabel: "🔷 LACRADO CPO", price: 3550.00, installment: "12x de R$ 295,83", image: "IPHONE 13.jpg.jpeg" },
-  { id: 26, name: "iPhone 14 128gb 🔵", condition: "novo", conditionLabel: "🔷 NOVO LACRADO", price: 3750.00, installment: "12x de R$ 312,50", image: "IPHONE 14.jpg.jpeg" },
-  { id: 27, name: "iPhone 14 Pro Max 128gb ⚪️", condition: "novo", conditionLabel: "🔷 NOVO LACRADO", price: 4750.00, installment: "12x de R$ 395,83", image: "IPHONE 14 PRO MAX.jpg.jpeg" },
-  { id: 28, name: "iPhone 15 128gb 🔵", condition: "novo", conditionLabel: "🔷 NOVO LACRADO", price: 4150.00, installment: "12x de R$ 345,83", image: "IPHONE 15.jpg.jpeg" },
-  { id: 29, name: "iPhone 16 128gb ⚪️🟣", condition: "novo", conditionLabel: "🔷 NOVO LACRADO", price: 4750.00, installment: "12x de R$ 395,83", image: "IPHONE 16.jpg (1).jpeg" },
-  { id: 30, name: "iPhone 17 Pro 256gb ⚪️", condition: "novo", conditionLabel: "🔷 NOVO LACRADO", price: 7950.00, installment: "12x de R$ 662,50", image: "IPHONE 17 PRO.jpg.jpeg" },
-  { id: 31, name: "iPhone 17 Pro Max 256gb ⚪️", condition: "novo", conditionLabel: "🔷 NOVO LACRADO", price: 8900.00, installment: "12x de R$ 741,66", image: "IPHONE 17 PRO MAX.jpg.jpeg" }
+  { id: 25, name: "iPhone 13 512gb ⚫️", condition: "novo", conditionLabel: 
+  "🔷 LACRADO CPO", price: 3550.00, installment: "De 2 a 12 vezes", image: "IPHONE 13.jpg.jpeg" },
+  { id: 26, name: "iPhone 14 128gb 🔵", condition: "novo", conditionLabel: 
+  "🔷 NOVO LACRADO", price: 3750.00, installment: "De 2 a 12 vezes", image: "IPHONE 14.jpg.jpeg" },
+  { id: 27, name: "iPhone 14 Pro Max 128gb ⚪️", condition: "novo", conditionLabel: 
+  "🔷 NOVO LACRADO", price: 4750.00, installment: "De 2 a 12 vezes", image: "IPHONE 14 PRO MAX.jpg.jpeg" },
+  { id: 28, name: "iPhone 15 128gb 🔵", condition: "novo", conditionLabel: 
+  "🔷 NOVO LACRADO", price: 4150.00, installment: "De 2 a 12 vezes", image: "IPHONE 15.jpg.jpeg" },
+  { id: 29, name: "iPhone 16 128gb ⚪️🟣", condition: "novo", conditionLabel: 
+  "🔷 NOVO LACRADO", price: 4750.00, installment: "De 2 a 12 vezes", image: "IPHONE 16.jpg (1).jpeg" },
+  { id: 30, name: "iPhone 17 Pro 256gb ⚪️", condition: "novo", conditionLabel: 
+  "🔷 NOVO LACRADO", price: 7950.00, installment: "De 2 a 12 vezes", image: "IPHONE 17 PRO.jpg.jpeg" },
+  { id: 31, name: "iPhone 17 Pro Max 256gb ⚪️", condition: "novo", conditionLabel: 
+  "🔷 NOVO LACRADO", price: 8900.00, installment: "De 2 a 12 vezes", image: "IPHONE 17 PRO MAX.jpg.jpeg" }
 ];
 
 /* =========================
